@@ -6,10 +6,14 @@ import (
 )
 
 func main() {
+
 	var gol = logic.GameOfLife{
 		Turn: 0,
 	}
+
 	gol.InitEmptyCells()
 
-	ui.Play(&gol)
+	var userinterface ui.UI = &ui.ConsoleUI{}
+
+	userinterface.Play(&gol)
 }

@@ -20,17 +20,17 @@ func PrintBoard(board *logic.GameOfLife) {
 }
 
 func Play(gol *logic.GameOfLife) {
-  gol.SetCellState(4, 4, true)
+	gol.SetCellState(4, 4, true)
 	gol.SetCellState(4, 5, true)
 	gol.SetCellState(4, 3, true)
 	gol.SetCellState(3, 4, true)
 	gol.SetCellState(5, 4, true)
-  fmt.Println("START")
-  fmt.Println("INITIAL FIELD:")
-  PrintBoard(gol)
-  gol.Start(func (gol *logic.GameOfLife) {
-    fmt.Println("TURN:", gol.Turn)
-    PrintBoard(gol)
-  })
-  fmt.Println("END")
+	fmt.Println("START")
+	fmt.Println("INITIAL FIELD:")
+	PrintBoard(gol)
+	gol.Start(func(gol *logic.GameOfLife) {
+		fmt.Println("TURN:", gol.Turn)
+		PrintBoard(gol)
+	})
+	fmt.Println("END")
 }

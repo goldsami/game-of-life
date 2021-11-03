@@ -1,17 +1,15 @@
 package main
 
 import (
-	// "fmt"
-	"gameoflife/ui"
 	"gameoflife/logic"
+	"gameoflife/ui"
 )
 
 func main() {
 	var gol = logic.GameOfLife{
 		Turn: 0,
 	}
-
-	gol.InitCells()
+	gol.InitEmptyCells()
 
 	ui.Play(&gol)
 }

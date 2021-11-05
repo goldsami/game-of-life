@@ -5,10 +5,12 @@ import (
 	"gameoflife/logic"
 )
 
-type ConsoleUI struct{}
+type ConsoleUI struct {
+	Board *logic.GameOfLife
+}
 
-func (c *ConsoleUI) PrintBoard(board *logic.GameOfLife) {
-	for _, value1 := range board.Cells {
+func (c *ConsoleUI) PrintBoard() {
+	for _, value1 := range c.Board.Cells {
 		var str string
 		for _, value2 := range value1 {
 			if value2.IsAlive {
@@ -21,18 +23,19 @@ func (c *ConsoleUI) PrintBoard(board *logic.GameOfLife) {
 	}
 }
 
-func (c *ConsoleUI) Play(gol *logic.GameOfLife) {
-	gol.SetCellState(4, 4, true)
-	gol.SetCellState(4, 5, true)
-	gol.SetCellState(4, 3, true)
-	gol.SetCellState(3, 4, true)
-	gol.SetCellState(5, 4, true)
+func (self *ConsoleUI) Play() {
+	self.Board.SetCellState(4, 4, true)
+	self.Board.SetCellState(4, 5, true)
+	self.Board.SetCellState(4, 3, true)
+	self.Board.SetCellState(5, 3, true)
+	self.Board.SetCellState(5, 5, true)
+	self.Board.SetCellState(6, 4, true)
 	fmt.Println("START")
 	fmt.Println("INITIAL FIELD:")
-	c.PrintBoard(gol)
-	gol.Start(func(gol *logic.GameOfLife) {
+	self.PrintBoard()
+	self.Board.Start(func(gol *logic.GameOfLife) {
 		fmt.Println("TURN:", gol.Turn)
-		c.PrintBoard(gol)
+		self.PrintBoard()
 	})
 
 	fmt.Println("END")

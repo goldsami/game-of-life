@@ -1,9 +1,11 @@
 package logic
 
-import "gameoflife/utils"
+import (
+	"gameoflife/utils"
+)
 
-const SIZEX = 9
-const SIZEY = 15
+const SIZEX = 25
+const SIZEY = 25
 
 type Cell struct {
 	PositionX int
@@ -19,7 +21,7 @@ type GameOfLife struct {
 
 func (gol *GameOfLife) InitEmptyCells() {
 	for index1, value1 := range gol.Cells {
-		for index2, _ := range value1 {
+		for index2 := range value1 {
 			gol.Cells[index1][index2] = &Cell{
 				PositionX: index1,
 				PositionY: index2,
@@ -81,9 +83,11 @@ func (gol *GameOfLife) MarkForChange() {
 			gol.markCellForChange(value2)
 		}
 	}
+	//fmt.Println("marked:", gol.Turn, ":", len(gol.Marked))
 }
 
 func (gol *GameOfLife) SetCellState(x int, y int, IsAlive bool) {
+	//fmt.Println("set sate")
 	gol.Cells[x][y].IsAlive = IsAlive
 }
 
@@ -91,6 +95,8 @@ func (gol *GameOfLife) ResolveMarked() {
 	for _, val := range gol.Marked {
 		val.IsAlive = !val.IsAlive
 	}
+	gol.Marked = []*Cell{}
+	//fmt.Println("Step")
 }
 
 func (gol *GameOfLife) Start(showCells func(*GameOfLife)) {
@@ -101,8 +107,18 @@ func (gol *GameOfLife) Start(showCells func(*GameOfLife)) {
 
 		gol.ResolveMarked()
 
-		gol.Marked = []*Cell{}
+		//gol.Marked = []*Cell{}
 
 		showCells(gol)
+
+		//time.Sleep(2 * time.Second)
 	}
+}
+
+func (gol *GameOfLife) MakeStep() {
+	gol.MarkForChange()
+
+	gol.ResolveMarked()
+
+	//time.Sleep(2 * time.Second)
 }

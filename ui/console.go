@@ -9,8 +9,8 @@ type ConsoleUI struct {
 	Board *logic.GameOfLife
 }
 
-func (c *ConsoleUI) PrintBoard() {
-	for _, value1 := range c.Board.Cells {
+func (self *ConsoleUI) PrintBoard() {
+	for _, value1 := range self.Board.Cells {
 		var str string
 		for _, value2 := range value1 {
 			if value2.IsAlive {

@@ -1,5 +1,7 @@
 # Game of life
 
+![Image cannot be loaded](./assets/example-pic.png "Title")
+
 ## Usage
 
 To run programm:
@@ -7,6 +9,8 @@ To run programm:
 ```bash
 go run main.go
 ```
+
+Press 'S' to Start/Stop the program when using GUI. 
 
 To run tests:
 
@@ -16,4 +20,4 @@ go test
 
 ## Modifying
 
-You can change field size by changing variables <code>SIZEX</code> and <code>SIZEY</code> in <code>logic/gameoflige.go:7</code>
+You can change field size by changing variables <code>SIZEX</code> and <code>SIZEY</code> in <code>logic/gameoflife.go:7</code>

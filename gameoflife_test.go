@@ -5,12 +5,6 @@ import (
 	"testing"
 )
 
-//func TestHelloEmpty(t *testing.T) {
-//	if "one" != "two" {
-//		t.Fatalf("aaaa")
-//	}
-//}
-
 func TestMakeOneStep(t *testing.T) {
 	var gol = logic.GameOfLife{
 		Turn: 0,

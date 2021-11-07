@@ -2,8 +2,16 @@
 
 ## Usage
 
+To run programm:
+
 ```bash
 go run main.go
+```
+
+To run tests:
+
+```bash
+go test
 ```
 
 ## Modifying

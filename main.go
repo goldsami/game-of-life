@@ -24,7 +24,7 @@ func main() {
 
 		reader := bufio.NewReader(os.Stdin)
 		text, _ := reader.ReadString('\n')
-		result := strings.TrimRight(text, "\n")
+		result := strings.TrimRight(text, "\n\r")
 
 		if result == "0" {
 			break

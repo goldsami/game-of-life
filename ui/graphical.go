@@ -10,8 +10,8 @@ import (
 
 const scale = 10
 
-var black color.RGBA = color.RGBA{R: 75, G: 139, B: 190, A: 255}
-var white color.RGBA = color.RGBA{R: 255, G: 232, B: 115, A: 255}
+var black color.RGBA = color.RGBA{R: 36, G: 36, B: 36, A: 255}
+var white color.RGBA = color.RGBA{R: 206, G: 206, B: 206, A: 255}
 var counter int = 0
 
 type GraphicalUI struct {

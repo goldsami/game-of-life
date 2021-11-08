@@ -4,7 +4,13 @@
 
 ## Usage
 
-To run programm:
+First you need to install dependencies:
+
+```bash
+go get -d ./...
+```
+
+To run program:
 
 ```bash
 go run main.go
